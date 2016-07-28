@@ -7,7 +7,7 @@
 	    </div>
 	    
 	     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	    	<p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+	    	<p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Visitante</a></p>
 		 </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	  </div>
