@@ -11,10 +11,20 @@ xmlns:tx="http://www.springframework.org/schema/tx"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver">
 		</property>
-		<property name="url" value="jdbc:mysql://localhost/paginasweb">
+		<property name="url" value="jdbc:mysql://localhost/estoque">
 		</property>
 		<property name="username" value="root"></property>
 		<property name="password" value="vertrigo"></property>
-	</bean>	
+	</bean>
+	
+	
+	<!-- Para upload de imagem, fazer um arquivo separado depois -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		 <!-- setting maximum upload size -->
+		<property name="maxUploadSize" value="100000" />
+
+	</bean>
 	
 </beans>
