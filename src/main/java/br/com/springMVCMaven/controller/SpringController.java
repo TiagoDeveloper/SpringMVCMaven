@@ -1,12 +1,14 @@
 package br.com.springMVCMaven.controller;
 
-import java.io.FileOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,11 +31,9 @@ public class SpringController {
 	}
 	
 	@RequestMapping("cadastrar")
-	public String cadastrados(@RequestParam("imagem") MultipartFile file,
-			@RequestParam("nome") String nome,
-			@RequestParam("descricao") String descricao) throws IOException{
+	public String cadastrados(@RequestParam("imagem") MultipartFile file,Produto p, HttpServletRequest request) throws IOException{
 		
-		Produto p = new Produto(null,nome,descricao,file.getBytes());
+		//Produto p = new Produto(null,nome,descricao,file.getBytes());
 		
 		
 		
@@ -41,14 +41,24 @@ public class SpringController {
 		
 		List<Produto> p2 = this.dao.lista();
 		
-		
+		System.out.println(file.getOriginalFilename());
 		
 			
-		FileOutputStream in =new FileOutputStream("C:\\Users\\Tiago\\Desktop\\imagem.jpg");
+	/*	FileOutputStream in =new FileOutputStream("C:\\Users\\Tiago\\workspaces java\\"
+				+ "Java web\\springMVCMaven\\src\\main\\webapp\\"
+				+ "resources\\imagens\\imagem.jpg");*/
 			
-		in.write(p2.get(0).getImagem());
+		String path = request.getSession().getServletContext().getRealPath("/");
 		
-		in.close();
+		System.out.println(path);
+		
+		//file.transferTo(new File());
+		
+		//file.transferTo(ResourceLoader.class.getResource("resources/imagens/"+file.getOriginalFilename()).getFile());
+		
+		//in.write(file.getBytes());
+		
+		//in.close();
 		
 		//model.addAttribute("produtos", );
 		

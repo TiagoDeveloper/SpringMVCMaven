@@ -1,7 +1,5 @@
 package br.com.springMVCMaven.model;
 
-import java.util.Arrays;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,7 +12,7 @@ public class Produto {
 	private Long id;
 	private String nome;
 	private String descricao;
-	private byte[] imagem;
+	
 	
 	public Produto() {
 		
@@ -25,7 +23,7 @@ public class Produto {
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
-		this.imagem = imagem;
+		
 	}
 
 	public Long getId() {
@@ -52,18 +50,11 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public byte[] getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(byte[] imagem) {
-		this.imagem = imagem;
-	}
 
 	@Override
 	public String toString() {
 		return "Produto [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", imagem="
-				+ Arrays.toString(imagem) + "]";
+				+  "]";
 	}
 	
 
